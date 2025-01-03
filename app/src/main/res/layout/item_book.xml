@@ -25,18 +25,9 @@
 
     <TextView
         android:id="@+id/deleteButton"
+        android:text="delete"
         android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/addButton"
-        android:textColor="@color/black"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="Button" />
-
 
 </LinearLayout>

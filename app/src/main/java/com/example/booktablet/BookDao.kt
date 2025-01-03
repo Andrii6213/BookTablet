@@ -7,13 +7,14 @@ import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
-interface BookInterface {
+interface BookDao {
+
     @Insert
     suspend fun addBook(books: Book)
 
     @Query("SELECT * FROM books ORDER BY title ASC")
     fun getAllBooks(): LiveData<List<Book>>
 
-@Delete
+    @Delete
     suspend fun deleteBook(books: Book)
 }

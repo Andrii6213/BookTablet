@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity() : AppCompatActivity() {
 
     private lateinit var bookViewModel: BookViewModel
     private lateinit var adapter: BookAdapter
@@ -15,13 +15,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        bookViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(application).create(BookViewModel::class.java)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         adapter = BookAdapter { book -> bookViewModel.deleteBook(book) }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        bookViewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application))[BookViewModel::class.java]
         bookViewModel.allBooks.observe(this) { books ->
             adapter.setBooks(books)
         }

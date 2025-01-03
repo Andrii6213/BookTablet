@@ -3,6 +3,7 @@ package com.example.booktablet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,7 @@ class BookAdapter(private val onDeleteClick: (Book) -> Unit) :
     inner class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.bookTitle)
         val author: TextView = itemView.findViewById(R.id.bookAuthor)
-        val deleteButton: ImageButton = itemView.findViewById(R.id.deleteButton)
+        val deleteButton: TextView = itemView.findViewById(R.id.deleteButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
